@@ -4,8 +4,12 @@ Ext.define('AM.view.user.List' ,{
     title: 'All Users',
 
     store:'Users',
-    initComponent: function() {
+	tbar: [
+  { xtype: 'button', text: 'Sort', action : 'sort' },
+  { xtype : 'textfield' }
+],
 
+    initComponent: function() {
         this.columns = [
             {header: 'Name',  dataIndex: 'name',  flex: 1},
             {header: 'Email', dataIndex: 'email', flex: 1}
@@ -13,4 +17,5 @@ Ext.define('AM.view.user.List' ,{
 
         this.callParent(arguments);
     }
+	
 });
