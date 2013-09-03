@@ -12,7 +12,7 @@ Ext.define("AM.store.Users", {
 		api : {
 		read : 'data/Users.json',
 		update : 'data/updateUsers.json'
-		}       
+		},       
        reader: {
             type: 'json',
            root: 'users',
