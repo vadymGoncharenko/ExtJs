@@ -16,6 +16,9 @@ Ext.define('AM.controller.Users', {
                 },
                 'userlist #nameFilter': {
                     change: this.changeTextField
+                },
+                'userlist button[action=sort]': {
+                    click: this.sortUser
                 }
             }
         );
@@ -47,10 +50,14 @@ Ext.define('AM.controller.Users', {
         console.log('oldValue= ' + oldValue);
         if (newValue == '') {
             console.log('empty textfield');
-              this.  getUsersStore().removeFilter();
+              this.getUsersStore().removeFilter();
         }
         else {
             this.getUsersStore().filter('name', newValue);
         }
+    }
+    ,
+    sortUser: function (button) {
+        console.log('clicked the SORT button');
     }
 });
