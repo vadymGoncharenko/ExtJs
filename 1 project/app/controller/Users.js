@@ -59,5 +59,6 @@ Ext.define('AM.controller.Users', {
     ,
     sortUser: function (button) {
         console.log('clicked the SORT button');
+        this.getUsersStore().sort('email','DESC') ;
     }
 });
