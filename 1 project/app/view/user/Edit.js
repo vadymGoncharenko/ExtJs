@@ -6,19 +6,19 @@ Ext.define('AM.view.user.Edit', {
     layout: 'fit',
     autoShow: true,
     requires: ['Ext.form.Panel'],
-    initComponent: function() {
+    initComponent: function () {
         this.items = [
             {
                 xtype: 'form',
                 items: [
                     {
                         xtype: 'textfield',
-                        name : 'name',
+                        name: 'name',
                         fieldLabel: 'Name'
                     },
                     {
                         xtype: 'textfield',
-                        name : 'email',
+                        name: 'email',
                         fieldLabel: 'Email'
                     }
                 ]

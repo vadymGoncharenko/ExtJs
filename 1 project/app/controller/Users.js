@@ -1,7 +1,7 @@
 Ext.define('AM.controller.Users', {
     extend: 'Ext.app.Controller',
-    stores:['Users'],
-    models:['User'],
+    stores: ['Users'],
+    models: ['User'],
     views: [
         'user.List',
         'user.Edit'
@@ -10,9 +10,12 @@ Ext.define('AM.controller.Users', {
         this.control({
                 'userlist': {
                     itemdblclick: this.editUser
-                } ,
-                'useredit button[action=save]':{
-                    click:this.updateUser
+                },
+                'useredit button[action=save]': {
+                    click: this.updateUser
+                },
+                'userlist #nameFilter': {
+                    change: this.changeTextField
                 }
             }
         );
@@ -27,7 +30,7 @@ Ext.define('AM.controller.Users', {
 
         view.down('form').loadRecord(record);
     },
-    updateUser: function (button){
+    updateUser: function (button) {
         console.log('clicked the save button');
         var win = button.up('window'),
             form = win.down('form'),
@@ -36,5 +39,12 @@ Ext.define('AM.controller.Users', {
 
         record.set(values);
         win.close();
+    },
+
+    changeTextField: function (textfield,newValue, oldValue, eOpts) {
+        console.log('change textfield');
+        console.log('newValue= ' + newValue);
+        console.log('oldValue= ' + oldValue);
+        this.getUsersStore().filter('name','Ed');
     }
 });
