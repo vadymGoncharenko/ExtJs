@@ -41,10 +41,16 @@ Ext.define('AM.controller.Users', {
         win.close();
     },
 
-    changeTextField: function (textfield,newValue, oldValue, eOpts) {
+    changeTextField: function (textfield, newValue, oldValue, eOpts) {
         console.log('change textfield');
         console.log('newValue= ' + newValue);
         console.log('oldValue= ' + oldValue);
-        this.getUsersStore().filter('name','Ed');
+        if (newValue == '') {
+            console.log('empty textfield');
+              this.  getUsersStore().removeFilter();
+        }
+        else {
+            this.getUsersStore().filter('name', newValue);
+        }
     }
 });
